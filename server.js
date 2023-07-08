@@ -1,8 +1,15 @@
 const express = require("express");
+const cors = require('cors')
 const passport = require("passport");
 const applyPassportStrategy = require("./app/helpers/passport");
 const { createServer } = require("http");
 const app = express();
+// CORS configuration
+const corsOptions = {
+    origin: 'http://localhost:3000', // Replace with your allowed origin
+    credentials: true, // Allow credentials (cookies, HTTP authentication)
+};
+app.use(cors(corsOptions));
 const port = process.env.PORT || 3001;
 // connection configurations
 const db = require("./app/helpers/db");
