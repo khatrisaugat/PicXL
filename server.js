@@ -3,6 +3,7 @@ const cors = require('cors')
 const passport = require("passport");
 const applyPassportStrategy = require("./app/helpers/passport");
 const { createServer } = require("http");
+require('dotenv').config();
 const app = express();
 // CORS configuration
 const corsOptions = {
@@ -24,8 +25,8 @@ db.authenticate()
   });
 
 applyPassportStrategy(passport);
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 const server = createServer(app);
 
