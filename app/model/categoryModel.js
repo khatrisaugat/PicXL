@@ -7,7 +7,7 @@ const Category = sequalize.define("categories", {
         primaryKey: true,
         autoIncrement: true,
     },
-    name: {
+    categoryname: {
         type: DataTypes.STRING,
     },
     status:{

@@ -23,5 +23,10 @@ module.exports = function (app) {
     // photo routes
     const photo = require("../controller/photo/photoController");
     app.route("/photos").get(photo.get_all_photos);
+    app.route("/photos/:id").get(photo.get_photos_by_category_id);
+    app.route("/photos").post(photo.add_a_photo);
+    app.route("/photos/:id").put(photo.update_a_photo);
+    app.route("/photos/:id").put(photo.delete_a_photo);
+
 
 };
